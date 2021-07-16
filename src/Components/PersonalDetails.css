@@ -1,0 +1,156 @@
+body{
+    background-color:#aaa;
+}
+
+.personalDetails{
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+    align-items:center;
+    margin:auto;
+    background-color:#fff;
+    width:508px;
+    height:554px;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+.inputs{
+    margin: 20px;
+    margin-top: 20px;
+    display:flex;
+    flex-direction:column;
+}
+.inputs > label{
+    display:flex;
+    justify-content:start;
+    margin: 2px;
+    margin-top:10px;
+}
+
+input:focus{
+    border: 3px solid #ED5901;
+}
+.gender-group > .clicked{
+  background-color:pink;
+}
+.clicked{
+  background-color:#ED5901;
+}
+select{
+  height: 40px;
+  width: 465px;
+  left: 0px;
+  top: 27px;
+  border-radius: 0px;
+  border: 2px solid grey;
+}
+input[type="text"] {
+    width: 100%;
+    border: 2px solid grey;
+    /* border-radius: 4px; */
+    margin: 8px 0;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: 0.3s;
+  }
+  
+  /* input[type="text"]:focus {
+    border-color: dodgerBlue;
+    box-shadow: 0 0 8px 0 dodgerBlue;
+  } */
+  
+  .inputWithIcon input[type="text"] {
+    padding-left: 40px;
+  }
+  
+  .inputWithIcon {
+    position: relative;
+    /* border: 1px solid pink; */
+  }
+  .inputGroup{
+    position: absolute;
+    left: 0;
+    top: 35px;
+    width: 60px !important;
+    background-color: rgb(221, 215, 215);
+    padding: 10px; 
+    height: 15px; 
+    border: 2px solid grey;   
+  }
+  
+  .inputWithIcon img {
+    position: absolute;
+    left: 0;
+    top: -0px;
+    padding: 9px 8px;
+   
+    transition: 0.3s;
+    width: 20px;
+  }
+  .inputWithIcon span {
+    position: absolute;
+    left: 20px;
+    top: -2px;
+    padding: 9px 8px;
+    
+    transition: 0.3s;
+    width: 20px !important;
+  }
+  
+  /* .inputWithIcon input[type="text"]:focus + img {
+    color: dodgerBlue;
+  } */
+  .numinput{
+    position: absolute;
+    left: 80px;
+    top: 35px;
+    
+    width: 377px !important;
+    height: 34px;
+    border-left: none;
+    outline: none !important;
+
+  }
+  .numinput:focus{
+    border: 2px solid grey !important;
+    outline: none !important;
+  }
+  .inputWithIcon.inputIconBg img {
+   
+    color: #fff;
+    padding: 9px 4px;
+    /* border-radius: 4px 0 0 4px; */
+    width:20px;
+    height: 18px;
+  }
+  
+  /* .inputWithIcon.inputIconBg input[type="text"]:focus + img {
+    color: #fff;
+    background-color: dodgerBlue;
+  } */
+  .next-btn{
+    margin: 10px !important;
+    padding: 10px 10px !important;
+    width: 80%;
+    background-color:#ED5901 !important;
+    color: white !important;
+    border: none !important;
+    cursor: pointer !important;
+    font-size: 15px !important;
+    border-radius: 0 !important;
+
+}
+.gender-group{
+  display: flex;
+
+  flex-direction: row !important;
+  justify-content:flex-start !important;
+  margin-left: 20px !important;
+}
+.gender-btn{
+color: #000 !important;
+margin-left: 10px !important;
+}
+.gender-btn:checked{
+  background-color:orange !important;
+}

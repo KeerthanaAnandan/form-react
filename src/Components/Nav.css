@@ -1,0 +1,16 @@
+.nav{
+   display:flex;
+   flex-direction: row;
+   justify-content:space-around;
+   align-items: center;
+   background-color: #2E4B64;
+   color: #fff;
+   text-decoration: none;
+}
+.single{
+    color: #fff;
+    text-decoration: none;
+}
+.active{
+    color: orange;
+}

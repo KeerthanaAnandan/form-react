@@ -1,0 +1,22 @@
+.emailVerification{
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+    align-items:center;
+    margin:auto;
+    background-color: #fff !important;
+    width:508px;
+    height:350px;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+}
+.emailVerification-otp{
+    align-items:center;
+   
+}
+
+.otp-input{
+    padding: 15px;
+    border: 2px solid grey;
+    border-radius: 0px;
+    margin:7px;
+    outline:none;
+}
