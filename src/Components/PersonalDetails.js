@@ -1,9 +1,9 @@
 import React , {useEffect , useState} from 'react';
 import { Typography, Button } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";import "./PersonalDetails.css";
+// import { makeStyles } from "@material-ui/styles";import "./PersonalDetails.css";
 import { Formik } from 'formik';
 // import {Link } from 'react-router-dom';
-import "./PersonalDetails.css"
+import "./PersonalDetails.css";
 
 
 function PersonalDetails() {
@@ -104,7 +104,7 @@ fetchStates()
          localStorage.setItem('state' , values.states);
          localStorage.setItem('number' , selectedCountryCode + "-" + values.number);
          localStorage.setItem('gender' , selectedGender);
-             window.location.href = "./CompanyDetails"
+            //  window.location.href = "./CompanyDetails"
        }}
      >
        {({
