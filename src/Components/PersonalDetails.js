@@ -1,20 +1,18 @@
 import React , {useEffect , useState} from 'react';
-import { Typography, Card, Button } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
-import "./PersonalDetails.css";
+import { Typography, Button } from "@material-ui/core";
+
 import { Formik } from 'formik';
-import {Link } from 'react-router-dom';
-import { LaptopWindowsRounded } from '@material-ui/icons';
+// import {Link } from 'react-router-dom';
+
 
 function PersonalDetails() {
   const[countryList , setCountryList] = useState([]);
   const [selectedCountry , setSelectedCountry] = useState("");
   const [selectedCountryCode , setSelectedCountryCode] = useState("");
-  // const [isClicked , setIsClicked] = useState(false);
   const [stateList , setStateList] = useState([])
   const [flag , setFlag] = useState("")
   const [alphaCode , setAlphaCode] = useState("")
-  const [enteredNumber , setEnteredNumber] = useState("")
+  // const [enteredNumber , setEnteredNumber] = useState("")
   const [selectedGender , setSelectedGender] = useState("")
   useEffect(() =>{
     const fetchData = async() => {
@@ -30,13 +28,12 @@ function PersonalDetails() {
    
     if(selectedCountry){
       const filtered =   countryList.filter(count =>{ return count.name == selectedCountry});
-      // setHasCountryCode(true)
-      console.log(filtered);
+     
+       console.log(filtered);
     
-        // console.log(filtered[0].callingCodes.toString());
-        // console.log(filtered[0].alpha2Code)
-        console.log(filtered[0].flag)
-        console.log(filtered[0].alpha2Code)
+        
+      //   console.log(filtered[0].flag)
+      //   console.log(filtered[0].alpha2Code)
        setSelectedCountryCode(filtered[0].callingCodes.toString());
        setFlag(filtered[0].flag)
        setAlphaCode(filtered[0].alpha2Code)
@@ -64,10 +61,6 @@ fetchStates()
 
 
 
-// fetch(`https://api.countrystatecity.in/v1/countries/${alphaCode}/states`, requestOptions)
-//   .then(response => response.json() )
-//   .then(result =>   setStateList(result))
-//   .catch(error => console.log('error', error));
 
 }
     }
@@ -95,7 +88,7 @@ fetchStates()
            errors.name = 'Required';
          } else if (
           !/^[A-Za-z\s]+$/i.test(values.name)
-          //  !/^[!@#$&._%+-]$/i.test(values.name)
+          
          ) {
            errors.name = 'Invalid name';
          }
@@ -103,17 +96,14 @@ fetchStates()
          
        }}
        onSubmit={(values, { setSubmitting }) => {
-        //  setTimeout(() => {
-        //    alert(JSON.stringify(values, null, 2));
-        //    setSubmitting(false);
-        //  }, 400);
+      
         setSubmitting(false);
          localStorage.setItem('name' , values.name);
          localStorage.setItem('country' , values.country);
          localStorage.setItem('state' , values.states);
          localStorage.setItem('number' , selectedCountryCode + "-" + values.number);
          localStorage.setItem('gender' , selectedGender);
-             window.location.href = "./CompanyDetails"
+             window.location.href = "./companydetails"
        }}
      >
        {({
@@ -125,7 +115,7 @@ fetchStates()
          handleSubmit,
          isSubmitting,
          
-         /* and other goodies */
+  
          
        }) => (
          <form onSubmit={handleSubmit}>
@@ -140,16 +130,7 @@ fetchStates()
            />
            {errors.name && touched.name && errors.name}
            </div>
-           {/* <input
-             type="password"
-             name="password"
-             onChange={handleChange}
-             onBlur={handleBlur}
-             value={values.password}
-           />
-           {errors.password && touched.password && errors.password} */}
-          
-           {/* my own form */}
+       
   
 {/*gender */}
 <div className="gender-group">
@@ -166,11 +147,7 @@ fetchStates()
      <select required className="form-control" id="country" name="country" value={values.country}  onChange={handleChange} >
      <option value="first">Please select</option>
       
-      
-           
-            
-          
-     {countryList.map(single => (
+   {countryList.map(single => (
         
       <option key={single.name} value={single.name} label={single.name}>{single.name}</option>
      ))}
@@ -198,18 +175,15 @@ fetchStates()
         <span>+{selectedCountryCode}</span> 
         </div>
   <input  required type="number" className="numinput" placeholder="Phone Number" name="number" value={values.number} onChange={handleChange}  />
-  {/* <span>{selectedCountryCode}</span> */}
-  {/* <i className="fa fa-phone fa-lg fa-fw" aria-hidden="true"></i> */}
+
  
   
 </div>
 
-       {/* <button type="submit" disabled={isSubmitting}>
-             Submit
-           </button> */}
+      
            <br />
            <br />
-               {/* <Link to="/companydetails"> */}
+            
            <Button className="next-btn" type="submit" disabled={isSubmitting}>
             Next
           </Button>
@@ -223,25 +197,7 @@ fetchStates()
           Login In
         </span></p>
        
-       {/* <h1>{selectedCountry}</h1> */}
-       {/* {hasCountryCode ?  <h1>{selectedCountryCode}</h1> : null } */}
-      
-       {/* <h1>{selectedCountryCode.countrycode}</h1> */}
-       {/* <h1>{selectedCountryCode.map(single => {
-         <div>
-        <p>{single.name}</p>
-        <p>{single.alpha2Code}</p>
-         </div>
-       })}</h1> */}
-       {/* <h1>{selectedCountryCode}</h1> */}
-       {/* <h1>{selectedCountryCode}</h1>
-       <img src={flag} alt="" /> */}
-       
-       {/* <h1>{stateList}</h1> */}
-          {/* {stateList.map(single => (
-        
-       <h1>{single.name}</h1>
-       ))}   */}
+     
    </div>
  );
  

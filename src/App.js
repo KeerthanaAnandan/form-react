@@ -5,7 +5,7 @@ import Nav from "./Components/Nav";
 import PersonalDetails from "./Components/PersonalDetails";
 import CompanyDetails from "./Components/CompanyDetails";
 import EmailVerification from "./Components/EmailVerification";
-import Email from "./Components/Email";
+// import Email from "./Components/Email";
 import SuccessPage from "./Components/SuccessPage";
 
 function App() {
