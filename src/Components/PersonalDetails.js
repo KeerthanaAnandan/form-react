@@ -1,8 +1,9 @@
 import React , {useEffect , useState} from 'react';
 import { Typography, Button } from "@material-ui/core";
-
+import { makeStyles } from "@material-ui/styles";import "./PersonalDetails.css";
 import { Formik } from 'formik';
 // import {Link } from 'react-router-dom';
+import "./PersonalDetails.css"
 
 
 function PersonalDetails() {
@@ -29,7 +30,7 @@ function PersonalDetails() {
     if(selectedCountry){
       const filtered =   countryList.filter(count =>{ return count.name == selectedCountry});
      
-       console.log(filtered);
+      // console.log(filtered);
     
         
       //   console.log(filtered[0].flag)
@@ -103,7 +104,7 @@ fetchStates()
          localStorage.setItem('state' , values.states);
          localStorage.setItem('number' , selectedCountryCode + "-" + values.number);
          localStorage.setItem('gender' , selectedGender);
-             window.location.href = "./CompanyDetails.js"
+             window.location.href = "./CompanyDetails"
        }}
      >
        {({
