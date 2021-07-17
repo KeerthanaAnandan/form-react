@@ -104,7 +104,7 @@ fetchStates()
          localStorage.setItem('state' , values.states);
          localStorage.setItem('number' , selectedCountryCode + "-" + values.number);
          localStorage.setItem('gender' , selectedGender);
-            //  window.location.href = "./CompanyDetails"
+            window.location = "./companydetails"
        }}
      >
        {({

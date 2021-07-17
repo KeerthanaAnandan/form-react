@@ -42,7 +42,7 @@ function CompanyDetails() {
         localStorage.setItem('email' , values.email);
         localStorage.setItem('Jobtitle' , values.JobTitle);
         localStorage.setItem('yearsOfExp' , values.YearsOfExperience);
-        //  window.location.href = "./emailverification"
+         window.location = "./emailverification"
        }}
      >
        {({

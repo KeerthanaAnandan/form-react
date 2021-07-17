@@ -47,7 +47,7 @@ import {Link} from "react-router-dom";
     const verifyHandler = (e) => {
       e.preventDefault();
       if(generatedOTP == enteredOTP){
-        window.location.href = "/success"
+        window.location = "/success"
       }
       else{
         setErrs("Check Entered otp again")
