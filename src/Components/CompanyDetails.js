@@ -3,9 +3,12 @@ import { Typography, Card, Button } from "@material-ui/core";
 import FileUpload from './FileUpload';
 import "./CompanyDetails.css"
 import { Formik } from 'formik';
-import {Link} from "react-router-dom";
+import {Link , useHistory} from "react-router-dom";
+
 
 function CompanyDetails() {
+  let history = useHistory();
+
     return (
       <div>
      <div>
@@ -42,7 +45,8 @@ function CompanyDetails() {
         localStorage.setItem('email' , values.email);
         localStorage.setItem('Jobtitle' , values.JobTitle);
         localStorage.setItem('yearsOfExp' , values.YearsOfExperience);
-         window.location = "./emailverification"
+        //  window.location = "./emailverification"
+        history.push("/emailverification")
        }}
      >
        {({

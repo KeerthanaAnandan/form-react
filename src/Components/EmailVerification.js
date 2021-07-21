@@ -5,7 +5,7 @@ import { Typography, Card, Button } from "@material-ui/core";
 import generator from 'generate-password'
 import "./EmailVerification.css"
 import { fontSize } from '@material-ui/system';
-import {Link} from "react-router-dom";
+import {Link , useHistory} from "react-router-dom";
 // import OTPInput, { ResendOTP } from "otp-input-react";
 
 // import OTPInput, { ResendOTP } from "otp-input-react";
@@ -30,6 +30,7 @@ import {Link} from "react-router-dom";
          const[enteredOTP , setEnteredOTP] = useState('')
          const [generatedOTP , setGeneratedOTP] = useState("")
           const [ errs , setErrs] = useState("")
+          let history = useHistory()
          useEffect(() =>{
           var password = generator.generate({
             length: 5,
@@ -47,7 +48,8 @@ import {Link} from "react-router-dom";
     const verifyHandler = (e) => {
       e.preventDefault();
       if(generatedOTP == enteredOTP){
-        window.location = "/success"
+        // window.location = "/success"
+        history.push("/success")
       }
       else{
         setErrs("Check Entered otp again")
