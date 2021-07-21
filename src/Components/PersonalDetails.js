@@ -4,7 +4,7 @@ import { Typography, Button } from "@material-ui/core";
 import { Formik } from 'formik';
 // import {Link } from 'react-router-dom';
 import "./PersonalDetails.css";
-import  { useHistory } from 'react-router-dom'
+// import  { useHistory } from 'react-router-dom'
 // import  { Redirect } from 'react-router-dom'
 
 
@@ -15,7 +15,7 @@ function PersonalDetails() {
   const [stateList , setStateList] = useState([])
   const [flag , setFlag] = useState("")
   const [alphaCode , setAlphaCode] = useState("")
-  let history = useHistory();
+  // let history = useHistory();
 
   // const [enteredNumber , setEnteredNumber] = useState("")
   const [selectedGender , setSelectedGender] = useState("")
@@ -109,7 +109,8 @@ fetchStates()
          localStorage.setItem('number' , selectedCountryCode + "-" + values.number);
          localStorage.setItem('gender' , selectedGender);
         // <Redirect to='/login'  />
-        history.push('/companydetails')
+        // history.push('/companydetails')
+        window.location = "/companydetails"
        }}
      >
        {({
