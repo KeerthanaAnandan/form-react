@@ -1,9 +1,11 @@
 import React from 'react';
-import { Typography, Card, Button } from "@material-ui/core";
-import FileUpload from './FileUpload';
+import { Typography} from "@material-ui/core";
+
 import "./CompanyDetails.css"
 import { Formik } from 'formik';
 import {Link , useHistory} from "react-router-dom";
+import NavTwo  from "./NavTwo";
+import ImageUpload from "./ImageUpload";
 
 
 function CompanyDetails() {
@@ -11,6 +13,7 @@ function CompanyDetails() {
 
     return (
       <div>
+        <NavTwo  />
      <div>
       <center>
         <Typography variant="h5">Add your Company Details</Typography>
@@ -20,27 +23,14 @@ function CompanyDetails() {
       </center>
       </div>
          <div className="companyDetails">
-            <FileUpload />
-           {/*Formik code */}
+           <ImageUpload />
+           
            <div className="inputs">
      <Formik
        initialValues={{ CompanyName: '' , email: '', JobTitle: '', YearsOfExperience:'' , }}
-      //  validate={values => {
-      //    const errors = {};
-      //    if (!values.email) {
-      //      errors.email = 'Required';
-      //    } else if (
-      //      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-      //    ) {
-      //      errors.email = 'Invalid email address';
-      //    }
-      //    return errors;
-      //  }}
+   
        onSubmit={(values, { setSubmitting }) => {
-        //  setTimeout(() => {
-        //    alert(JSON.stringify(values, null, 2));
-        //    setSubmitting(false);
-        //  }, 400);
+     
         localStorage.setItem('companyName' , values.CompanyName);
         localStorage.setItem('email' , values.email);
         localStorage.setItem('Jobtitle' , values.JobTitle);
@@ -57,7 +47,7 @@ function CompanyDetails() {
          handleBlur,
          handleSubmit,
          isSubmitting,
-         /* and other goodies */
+        
        }) => (
          <form onSubmit={handleSubmit}>
              <div className="single-input">
@@ -85,14 +75,7 @@ function CompanyDetails() {
            {errors.email && touched.email && errors.email}
 </div>
             
-           {/* <input
-             type="password"
-             name="password"
-             onChange={handleChange}
-             onBlur={handleBlur}
-             value={values.password}
-           />
-           {errors.password && touched.password && errors.password} */}
+         
        <div className="single-input">
        <label htmlFor="JobTitle">Job Title</label>
         <input

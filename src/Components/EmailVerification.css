@@ -15,8 +15,22 @@
 
 .otp-input{
     padding: 15px;
-    border: 2px solid grey;
+   
     border-radius: 0px;
-    margin:7px;
+    margin-left: 30px !important;
     outline:none;
 }
+@media(max-width: 540px){
+.emailVerification{
+    width:400px;
+    height:400px;
+}
+.otp-input{
+    padding: 15px;
+   
+    border-radius: 0px;
+   margin: 0px !important;
+    outline:none;
+}
+}
+

@@ -1,35 +1,16 @@
 import React, {  useState , useEffect } from 'react';
-import { Typography, Card, Button } from "@material-ui/core";
-// import OtpInput from 'react-otp-input';
-// import OtpInput from "react-otp-input";
+import { Typography } from "@material-ui/core";
 import generator from 'generate-password'
 import "./EmailVerification.css"
-import { fontSize } from '@material-ui/system';
 import {Link , useHistory} from "react-router-dom";
-// import OTPInput, { ResendOTP } from "otp-input-react";
+import NavThree from './NavThree';
+import OtpInput from 'react-otp-input';
 
-// import OTPInput, { ResendOTP } from "otp-input-react";
-
-// export default class EmailVerification extends Component {
-//   state = { otp: '' };
-
-//   handleChange = (otp) => this.setState({ otp });
-
-//   render() {
-//     return (
-//       <OtpInput
-//         value={this.state.otp}
-//         onChange={this.handleChange}
-//         numInputs={6}
-//         separator={<span>-</span>}
-//       />
-//     );
-//   }
-// }
  function EmailVerification(){
-         const[enteredOTP , setEnteredOTP] = useState('')
+     
          const [generatedOTP , setGeneratedOTP] = useState("")
           const [ errs , setErrs] = useState("")
+          const[OTP , setOTP] = useState()
           let history = useHistory()
          useEffect(() =>{
           var password = generator.generate({
@@ -37,26 +18,29 @@ import {Link , useHistory} from "react-router-dom";
             numbers: true
           });
           
-          // 'uEyMTw32v9'
+      
           setGeneratedOTP(password)
           console.log(password);
          }, [])
-    //    const  handleChange = ( e) => {
-         
-    //     setOtp(e.target.value)
-    // };
+   
     const verifyHandler = (e) => {
       e.preventDefault();
-      if(generatedOTP == enteredOTP){
+
+      if(generatedOTP === OTP){
         // window.location = "/success"
         history.push("/success")
       }
       else{
         setErrs("Check Entered otp again")
+        setOTP("")
       }
     }
        return(
+         <div>
+            <NavThree />
+        
            <div className="emailVerification">
+            
                   <center>
         <Typography variant="h5">Enter the OTP</Typography>
         <p>
@@ -65,17 +49,23 @@ import {Link , useHistory} from "react-router-dom";
       </center>
                 <p>Enter your code : <span style={{fontSize:"25px"}}>{generatedOTP}</span>  </p>
          
-           {/* <div>
-              <OtpInput
-                style={{ width: "3em", height: "3em" }}
-                onChange={(otp) => console.log(otp)}
-                numInputs={5}
-                separator={<span>&nbsp;&nbsp;</span>}
-              />{" "}
-            </div> */}
-            <div className="single-input">
-              <label htmlFor="otp">Enter OTP</label>
-            <input type="text"  className="otp-input" name="otp" value={enteredOTP} onChange={(e) => setEnteredOTP(e.target.value)}/>
+         
+            <div className="otp-input">
+            <OtpInput            
+            inputStyle={{  
+                width: '2.5rem',  
+                height: '3rem',  
+                margin: '10px 1rem',  
+                fontSize: '1rem',  
+                borderRadius: 4,  
+                border: '2px solid rgba(0,0,0,0.3)',
+                alignItems: 'center',                      
+            }}  
+          onChange={setOTP}
+          numInputs={5}
+          separator={<span> &nbsp; </span>}
+          value={OTP}
+        />    
             </div>
             {errs}
            <div className="buttons">
@@ -91,6 +81,10 @@ import {Link , useHistory} from "react-router-dom";
            </div>
           
          
+           </div>
+           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae, aut.  <span style={{ color: "orange" }}>
+          name@doamin.com
+        </span></p>
            </div>
        )
 }

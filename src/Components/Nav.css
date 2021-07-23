@@ -1,16 +1,78 @@
 .nav{
    display:flex;
    flex-direction: row;
-   justify-content:space-around;
+
+   justify-content: stretch;
    align-items: center;
    background-color: #2E4B64;
    color: #fff;
    text-decoration: none;
+   height: 80px;
+   width: 100vw !important;
+   overflow:hidden !important;
 }
 .single{
     color: #fff;
-    text-decoration: none;
+    text-decoration: none !important;
+    margin: 10px;
 }
 .active{
     color: orange;
+    text-decoration: none !important;
 }
+.nav-btn{
+    background-color: orange;
+    font-size: 20px;
+    border-radius:50%;
+    color:#2E4B64;
+    margin: 5px;
+    
+    margin-bottom: -7px;
+}
+.null-btn{
+    background-color: rgb(41, 41, 41);
+   
+    border-radius:50%;
+    color:#fff;
+    margin: 5px;
+    margin-bottom: -7px;
+    text-decoration: none !important; 
+}
+.num-btn{ 
+    background-color: orange;
+    padding:5px 10px;
+    border-radius:50%;
+    color:#fff;
+    margin: 5px;
+    margin-bottom: -7px;
+    text-decoration: none !important; 
+}
+h2 {
+    width: 490px; 
+    text-align: center; 
+    border-bottom: 1px solid #999; 
+    line-height: 0.1em;
+    margin-bottom: 5px;
+    /* margin: 10px 0 20px; */
+  
+ } 
+ 
+ /* h2 span { 
+     background:#fff; 
+     padding:0 10px; 
+ } */
+ @media (max-width:540px){
+    .nav{
+    
+        width: 100vw !important;
+        font-size:small !important;
+        overflow:hidden !important;
+     }
+     h2 {
+        width: 390px; 
+        
+       
+        /* margin: 10px 0 20px; */
+      
+     } 
+ }

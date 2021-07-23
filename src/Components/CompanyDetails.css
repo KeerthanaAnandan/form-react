@@ -45,7 +45,7 @@ body{
 }
 .single-input > label{
     display:flex;
-    justify-content:start;
+    justify-content:flex-start;
     margin: 2px;
 }
 .single-input > input{
@@ -88,4 +88,19 @@ input[type="email"]{
     border: none;
     cursor: pointer;
     font-size: 15px;
+}
+@media (max-width: 540px){
+   
+    .companyDetails{
+       
+        width:400px;
+        height:800px;
+    
+    }
+    input[type="number"]{
+        width: 290px;
+    }
+    input[type="email"]{
+        width: 290px;
+    }
 }

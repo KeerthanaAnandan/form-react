@@ -1,11 +1,11 @@
 import React , {useEffect , useState} from 'react';
 import { Typography, Button } from "@material-ui/core";
-// import { makeStyles } from "@material-ui/styles";import "./PersonalDetails.css";
 import { Formik } from 'formik';
 // import {Link } from 'react-router-dom';
 import "./PersonalDetails.css";
-// import  { useHistory } from 'react-router-dom'
-// import  { Redirect } from 'react-router-dom'
+import  { useHistory } from 'react-router-dom'
+// import  { Redirect } from 'react-router-dom';
+import Nav from "./NavOne";
 
 
 function PersonalDetails() {
@@ -15,9 +15,9 @@ function PersonalDetails() {
   const [stateList , setStateList] = useState([])
   const [flag , setFlag] = useState("")
   const [alphaCode , setAlphaCode] = useState("")
-  // let history = useHistory();
+  let history = useHistory();
 
-  // const [enteredNumber , setEnteredNumber] = useState("")
+  
   const [selectedGender , setSelectedGender] = useState("")
   useEffect(() =>{
     const fetchData = async() => {
@@ -27,17 +27,16 @@ function PersonalDetails() {
       setCountryList(items)
     }
     fetchData()
-  } , []);
+   
+  } , []); // eslint-disable-next-line react-hooks/exhaustive-deps
 
   useEffect(() =>{
    
     if(selectedCountry){
-      const filtered =   countryList.filter(count =>{ return count.name == selectedCountry});
+      const filtered =   countryList.filter(count =>{ return count.name === selectedCountry});
      
       // console.log(filtered);
-    
-        
-      //   console.log(filtered[0].flag)
+     //   console.log(filtered[0].flag)
       //   console.log(filtered[0].alpha2Code)
        setSelectedCountryCode(filtered[0].callingCodes.toString());
        setFlag(filtered[0].flag)
@@ -76,6 +75,7 @@ fetchStates()
  }
     return (
         <div>
+           <Nav />
       <center>
         <Typography variant="h5">Add your Personal Details</Typography>
         <p>
@@ -109,8 +109,8 @@ fetchStates()
          localStorage.setItem('number' , selectedCountryCode + "-" + values.number);
          localStorage.setItem('gender' , selectedGender);
         // <Redirect to='/login'  />
-        // history.push('/companydetails')
-        window.location = "/companydetails"
+        history.push('/companydetails')
+        // window.location = "/companydetails"
        }}
      >
        {({
@@ -143,16 +143,30 @@ fetchStates()
 <div className="gender-group">
             <label>Gender</label>
             <br />
-            <Button className="gender-btn" onClick={clickHandler} variant="outlined">Male</Button>&nbsp;
-            <Button className="gender-btn"  onClick={clickHandler} variant="outlined">Female</Button>&nbsp;
-            <Button className="gender-btn"  onClick={clickHandler} variant="outlined">Other</Button>&nbsp;
+            <br />
+           
+           
+            <div className="form-subs" >
+				<label >
+					<input type="radio" id="male" name="subscription" value="male" required="required" />
+					<span onClick={clickHandler}>Male</span>
+				</label>				
+				<label>
+					<input type="radio" id="female" name="subscription" value="female" />
+					<span onClick={clickHandler}>Female</span>
+				</label>			 
+				<label>
+					<input type="radio" id="other" name="subscription" value="silver" />
+					<span onClick={clickHandler}>Other</span>
+				</label>						
+			</div>	
           </div>
         
     {/* country*/ }
     <div className="inputs">
     <label htmlFor="country">Country</label>
      <select required className="form-control" id="country" name="country" value={values.country}  onChange={handleChange} >
-     <option value="first">Please select</option>
+     <option value="">Please select</option>
       
    {countryList.map(single => (
         
@@ -164,7 +178,7 @@ fetchStates()
        <div className="inputs">
        <label htmlFor="states">State</label>
         <select required className="form-control" id="states" name="states" value={values.states}  onChange={handleChange} >
-        <option value="first" label="Select a state ... " defaultValue="selected" >Select a state ... </option>
+        <option value="" label="Select a state ... " defaultValue="selected" >Select a state ... </option>
       
            
             
